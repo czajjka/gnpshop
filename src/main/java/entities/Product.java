@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "Products")
@@ -17,8 +18,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
-    private Integer authorId;
-    private Integer categoryId;
+//    private Integer authorId;
+//    private Integer categoryId;
     private String productname;
     private String productpescription;
     private String productimage;
@@ -26,9 +27,17 @@ public class Product {
     private String producttype;
     private Integer stockquantity;
 
+    @ManyToOne
+    @JoinColumn (name = "categoryId")
+    private Category Category;
+
+    @ManyToOne
+    @JoinColumn (name = "authorId")
+    private Author Author;
+
     @OneToMany
-    @JoinColumn (name = "orderline_id")
-    private OrderLine OrderLine;
+    @JoinColumn (name = "orderlineId")
+    private List<OrderLine> OrderLine;
 
 
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "OrderLines")
@@ -21,10 +22,11 @@ public class OrderLine {
     private BigDecimal productprice;
 
     @ManyToOne
-    @JoinColumn (name = "order_id")
-    private Order order;
+    @JoinColumn (name = "productId")
+    private Product product;
 
-    @OneToMany(cascade = CascadeType.DETACH)
-    private List<Order> order;
+    @OneToMany
+    @JoinColumn (name = "basketId")
+    private List<Basket> Basket;
 
 }
