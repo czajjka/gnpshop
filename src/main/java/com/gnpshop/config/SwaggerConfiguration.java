@@ -17,20 +17,20 @@ public class SwaggerConfiguration {
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
 //                .groupName("car")
-//                .apiInfo(apiInfo())
+                .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.gnpshop.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
-//    private ApiInfo apiInfo() {
-//        return new ApiInfoBuilder()
-//                .title("Webshop Api")
-//                .description("Webshop REST Api with Swagger")
-//                .version("0.0.1")
-//                .build();
-//    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Webshop Api")
+                .description("Webshop REST Api with Swagger")
+                .version("0.0.1")
+                .build();
+    }
 
 
     @EventListener(ApplicationReadyEvent.class)
