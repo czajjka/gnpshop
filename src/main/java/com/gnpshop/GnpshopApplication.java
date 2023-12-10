@@ -1,4 +1,4 @@
-package com.example.gnpshop;
+package com.gnpshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
