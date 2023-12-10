@@ -1,4 +1,4 @@
-package entities;
+package com.gnpshop.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,21 +8,19 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "Authors")
+@Table(name = "Categories")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Author {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer authorId;
-    private String firstname;
-    private String surname;
+    private Integer categoryid;
+    private String categoryname;
 
     @OneToMany
     @JoinColumn (name = "productId")
-    private List<Product> products;
-
+    private List<Product> product;
 
 
 }
