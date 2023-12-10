@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "UserAccounts")
 @Data
@@ -22,4 +24,16 @@ public class UserAccount {
     private String avatar;
     private Integer roleId;
     private String channelpreferences;
+
+    @OneToMany
+    @JoinColumn (name = "basketId")
+    private List<Basket> baskets;
+
+    @ManyToOne
+    @JoinColumn (name = "roleId")
+    private Role Role;
+
+    @ManyToOne
+    @JoinColumn (name = "useraccountId")
+    private UserAccount UserAccount;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "Orders")
@@ -23,7 +24,9 @@ public class Order {
     private Integer orderclient;
     private String orderstatus;
 
-    @ManyToOne
-    @JoinColumn (name = "useraccount_id")
-    private UserAccount userAccount;
+    @OneToMany
+    @JoinColumn (name = "useraccountId")
+    private List<UserAccount> userAccount;
+
+
 }

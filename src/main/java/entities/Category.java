@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Categories")
 @Data
@@ -16,9 +18,9 @@ public class Category {
     private Integer categoryid;
     private String categoryname;
 
-    @ManyToOne
-    @JoinColumn (name = "product_id")
-    private Product product;
+    @OneToMany
+    @JoinColumn (name = "productId")
+    private List<Product> product;
 
 
 }

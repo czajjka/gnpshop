@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Authors")
 @Data
@@ -18,8 +20,9 @@ public class Author {
     private String surname;
 
     @OneToMany
-    @Embedded
-    @JoinColumn (name = "product_id")
-    private Product product;
+    @JoinColumn (name = "productId")
+    private List<Product> products;
+
+
 
 }
