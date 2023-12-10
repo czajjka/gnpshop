@@ -1,4 +1,4 @@
-package entities;
+package com.gnpshop.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
