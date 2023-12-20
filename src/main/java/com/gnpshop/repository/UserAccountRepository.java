@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserAccountRepository extends JpaRepository<UserAccount, Integer> {
     Iterable<UserAccountRepository> findUserAccountById(Integer id);
+
+    boolean existsUserAccountLogin(String useraccountlogin);
 }

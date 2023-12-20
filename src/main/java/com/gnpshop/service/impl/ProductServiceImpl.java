@@ -56,8 +56,6 @@ public class ProductServiceImpl implements ProductService {
             product.setProducttype(productType);
 
             //CATEGORY
-
-            // TODO: Add method findByCategoryName to Category Repo
             Category category = categoryRepository.findCategoryByName(categoryName);
             //TODO: Give a possibility to add a new Category if non of the existing categories are relevant
 //        if (category == null) {
@@ -69,8 +67,7 @@ public class ProductServiceImpl implements ProductService {
             //AUTHOR
 
             // Set the author by finding it from the repository
-            // TODO: Add method findByAuthorName to Author Repo
-            Author author = authorRepository.findByAuthorName(authorName);
+            Author author = authorRepository.findAuthorByName(authorName);
             //TODO: Give a possibility to add a new Author if non of the existing are relevant
             product.setAuthor(author);
 
@@ -91,22 +88,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(Integer productId) {
-        //TODO: Change Order to Product in Product Repo
         return productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found with ID: " + productId));
     }
 
     @Override
     public Product getProductByName(String productName) {
-        //TODO: Add method findByProductName in Product Repo
-        //return productRepository.findByProductName(productName).orElse(null);
-        return productRepository.findByProductName(productName)
+        return productRepository.findProductByName(productName)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found with name: " + productName));
-    }
-
-    //TODO: Do we need that?
-    @Override
-    public List<Product> searchProducts(String keyword) {
-        return null;
     }
 }
