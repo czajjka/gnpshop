@@ -27,8 +27,6 @@ public class UserServiceImpl implements UserService {
 //        if (userRepository.existsByUseraccountlogin(userAccount.getUseraccountlogin())) {
 //            throw new RuntimeException("Username is already taken");
 //        }
-//
-//        //TODO: Change to UserAccounts in User Repo
         return userRepository.save(userAccount);
     }
 }

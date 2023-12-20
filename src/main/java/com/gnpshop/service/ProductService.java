@@ -18,6 +18,4 @@ public interface ProductService {
     Product getProductById(Integer productId);
     Product getProductByName(String productName);
 
-    //TODO: do we need that?
-    List<Product> searchProducts(String keyword);
 }
