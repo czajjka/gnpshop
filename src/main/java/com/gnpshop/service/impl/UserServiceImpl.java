@@ -21,14 +21,12 @@ public class UserServiceImpl implements UserService {
 //        if (StringUtils.isBlank(userAccount.getUseraccountlogin()) || StringUtils.isBlank(userAccount.getUseraccountpassword())) {
 //            throw new RuntimeException("Username and password are required");
 //        }
-//
+
+
 //        // Check if the username is already taken
-//        //TODO add existsByUseraccountlogin in UserAccount REPO
-//        if (userRepository.existsByUseraccountlogin(userAccount.getUseraccountlogin())) {
-//            throw new RuntimeException("Username is already taken");
-//        }
-//
-//        //TODO: Change to UserAccounts in User Repo
+        if (userRepository.existsUserAccountLogin(userAccount.getUseraccountlogin())) {
+            throw new RuntimeException("Username is already taken");
+        }
         return userRepository.save(userAccount);
     }
 }
