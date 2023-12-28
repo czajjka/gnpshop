@@ -16,7 +16,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
-    private String rolename;
+    private String roleName;
 
     @OneToMany
     @JoinColumn (name = "userAccountId")

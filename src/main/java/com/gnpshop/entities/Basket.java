@@ -14,8 +14,8 @@ public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer basketId;
-    private Integer useraccountId;
-    private Integer orderlineId;
+    private Integer userAccountId;
+    private Integer orderLineId;
 
     @ManyToOne
     @JoinColumn (name = "orderlineId")

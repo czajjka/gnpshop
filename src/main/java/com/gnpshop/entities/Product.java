@@ -20,12 +20,12 @@ public class Product {
     private Integer productId;
 //    private Integer authorId;
 //    private Integer categoryId;
-    private String productname;
-    private String productpescription;
-    private String productimage;
-    private BigDecimal productprice;
-    private String producttype;
-    private Integer stockquantity;
+    private String productName;
+    private String productDescription;
+    private String productImage;
+    private BigDecimal productPrice;
+    private String productType;
+    private Integer stockQuantity;
 
     @ManyToOne
     @JoinColumn (name = "categoryId")

@@ -16,16 +16,16 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer webshoporderId;
-    private Integer useraccountId;
-    private BigDecimal totalprice;
-    private String deliveryaddress;
-    private Integer creationdate;
-    private Integer orderclient;
-    private String orderstatus;
+    private Integer webShopOrderId;
+    private Integer userAccountId;
+    private BigDecimal totalPrice;
+    private String deliveryAddress;
+    private Integer creationDate;
+    private Integer orderClient;
+    private String orderStatus;
 
     @OneToMany
-    @JoinColumn (name = "useraccountId")
+    @JoinColumn (name = "userAccountId")
     private List<UserAccount> userAccount;
 
 
