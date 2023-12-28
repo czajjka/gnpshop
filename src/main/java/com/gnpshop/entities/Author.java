@@ -16,7 +16,7 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer authorId;
-    private String firstname;
+    private String firstName;
     private String surname;
 
     @OneToMany

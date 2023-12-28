@@ -16,10 +16,10 @@ import java.util.List;
 public class OrderLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderlineId;
+    private Integer orderLineId;
     private Integer productId;
-    private Integer nrofproducts;
-    private BigDecimal productprice;
+    private Integer nrOfProducts;
+    private BigDecimal productPrice;
 
     @ManyToOne
     @JoinColumn (name = "productId")
