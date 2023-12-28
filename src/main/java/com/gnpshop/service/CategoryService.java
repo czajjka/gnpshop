@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryService {
-    @Autowired
     private CategoryRepository categoryRepository;
 
     public Category addCategory(String categoryName, Integer categoryId) {
         Category category = new Category();
-        category.setCategoryname(categoryName);
-        category.setCategoryid(categoryId);
+        category.setCategoryName(categoryName);
+        category.setCategoryId(categoryId);
 
         return categoryRepository.save(category);
     }

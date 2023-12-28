@@ -15,15 +15,15 @@ import java.util.List;
 public class UserAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer useraccountId;
-    private Integer webshoporderId;
-    private String useraccountlogin;
-    private String useraccountpassword;
+    private Integer userAccountId;
+    private Integer webShopOrderId;
+    private String userAccountLogin;
+    private String userAccountPassword;
     private String city;
-    private String useraddress;
+    private String userAddress;
     private String avatar;
     private Integer roleId;
-    private String channelpreferences;
+    private String channelPreferences;
 
     @OneToMany
     @JoinColumn (name = "basketId")
