@@ -12,7 +12,7 @@ public class CategoryService {
     public Category addCategory(String categoryName, Integer categoryId) {
         Category category = new Category();
         category.setCategoryName(categoryName);
-        category.setCategoryid(categoryId);
+        category.setCategoryId(categoryId);
 
         return categoryRepository.save(category);
     }
