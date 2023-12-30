@@ -5,23 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "Baskets")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table(name = "Baskets")
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer basketId;
-    private Integer userAccountId;
-    private Integer orderLineId;
+    @Column(name = "basket_Id")
+    private Integer Id;
+    private Integer userAccount_Id;
+    private Integer orderLine_Id;
 
     @ManyToOne
-    @JoinColumn (name = "orderlineId")
-    private OrderLine OrderLine;
+    @JoinColumn (name = "orderLineId")
+    private OrderLine orderLine;
 
     @ManyToOne
-    @JoinColumn (name = "useraccountId")
-    private UserAccount UserAccount;
+    @JoinColumn (name = "userAccountId")
+    private UserAccount userAccount;
 }

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GnpshopApplication {
+public class GNPShopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GnpshopApplication.class, args);
+        SpringApplication.run(GNPShopApplication.class, args);
     }
 
 }

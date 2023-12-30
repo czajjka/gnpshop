@@ -15,20 +15,20 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Service
-public class ProductServiceImpl implements ProductService {
-    @Autowired
+//@Service
+public class ProductServiceImpl/* implements ProductService*/ {
+//    @Autowired
     private ProductRepository productRepository;
 
     //We need it for dropdown while adding product
-    @Autowired
+//    @Autowired
     private CategoryRepository categoryRepository;
 
     //We need it for dropdown while adding product
-    @Autowired
+//    @Autowired
     private AuthorRepository authorRepository;
 
-    @Override
+//    @Override
     //TODO: Check if not better Product addProduct(Product product) ??
     public ProductAddResponse addProduct(Integer productId, String productName, String productDescription, String productImage,
                                          Integer stockQuantity, BigDecimal productPrice, String productType,
@@ -47,13 +47,13 @@ public class ProductServiceImpl implements ProductService {
 
             // NEW PRODUCT
             Product product = new Product();
-            product.setProductId(productId);
-            product.setProductname(productName);
-            product.setProductpescription(productDescription);
-            product.setProductimage(productImage);
-            product.setStockquantity(stockQuantity);
-            product.setProductprice(productPrice);
-            product.setProducttype(productType);
+//            product.setProductId(productId);
+//            product.setProductName(productName);
+//            product.setProductDescription(productDescription);
+//            product.setProductImage(productImage);
+//            product.setStockQuantity(stockQuantity);
+//            product.setProductPrice(productPrice);
+//            product.setProductType(productType);
 
             //CATEGORY
             Category category = categoryRepository.findCategoryByName(categoryName);
@@ -61,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
 //        if (category == null) {
 //
 //        }
-            product.setCategory(category);
+//            product.setCategory(category);
 
 
             //AUTHOR
@@ -69,10 +69,10 @@ public class ProductServiceImpl implements ProductService {
             // Set the author by finding it from the repository
             Author author = authorRepository.findAuthorByName(authorName);
             //TODO: Give a possibility to add a new Author if non of the existing are relevant
-            product.setAuthor(author);
+//            product.setAuthor(author);
 
 
-            productRepository.save(product);
+//            productRepository.save(product);
 
             return new ProductAddResponse(true, "Product added successfully", product);
         } catch (Exception e) {
@@ -81,20 +81,20 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-    @Override
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
+//    @Override
+//    public List<Product> getAllProducts() {
+//        return productRepository.findAll();
+//    }
 
-    @Override
-    public Product getProductById(Integer productId) {
-        return productRepository.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found with ID: " + productId));
-    }
+//    @Override
+//    public Product getProductById(Integer productId) {
+//        return productRepository.findById(productId)
+//                .orElseThrow(() -> new ProductNotFoundException("Product not found with ID: " + productId));
+//    }
 
-    @Override
-    public Product getProductByName(String productName) {
-        return productRepository.findProductByName(productName)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found with name: " + productName));
-    }
+//    @Override
+//    public Product getProductByName(String productName) {
+//        return productRepository.findProductByName(productName)
+//                .orElseThrow(() -> new ProductNotFoundException("Product not found with name: " + productName));
+//    }
 }

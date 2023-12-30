@@ -16,11 +16,11 @@ import java.util.List;
 public class Category extends RepresentationModel<Category> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoryId;
-    private String categoryName;
+    private Integer Id;
+    private String name;
 
-    @OneToMany
-    @JoinColumn (name = "productId")
-    private List<Product> product;
+//    @OneToMany
+//    @JoinColumn (name = "productId")
+//    private List<Product> product;
 
 }

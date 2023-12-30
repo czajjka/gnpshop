@@ -8,19 +8,22 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity
-@Table(name = "Products")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table(name = "products")
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productId;
+    @Column(name = "product_id")
+    private Integer Id;
 //    private Integer authorId;
 //    private Integer categoryId;
-    private String productName;
+    @Column(name = "product_name")
+    private String name;
+    @Column(name = "product_name")
     private String productDescription;
     private String productImage;
     private BigDecimal productPrice;

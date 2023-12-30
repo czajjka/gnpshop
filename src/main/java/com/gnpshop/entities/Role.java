@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
-@Table(name = "Roles")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table(name = "Roles")
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

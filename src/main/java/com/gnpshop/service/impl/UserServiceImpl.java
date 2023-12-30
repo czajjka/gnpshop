@@ -7,13 +7,13 @@ import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserServiceImpl implements UserService {
+//@Service
+public class UserServiceImpl /*implements UserService*/ {
 
-    @Autowired
+//    @Autowired
     private UserAccountRepository userRepository;
 
-    @Override
+/*    @Override
     public UserAccount registerUser(UserAccount userAccount) {
 
 //        //VALIDATION
@@ -29,4 +29,5 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.save(userAccount);
     }
+    */
 }

@@ -24,13 +24,13 @@ public class SwaggerConfiguration {
                 .build();
     }
 
-//    private ApiInfo apiInfo() {
-//        return new ApiInfoBuilder()
-//                .title("Webshop Api")
-//                .description("Webshop REST Api with Swagger")
-//                .version("0.0.1")
-//                .build();
-//    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Webshop Api")
+                .description("Webshop REST Api with Swagger")
+                .version("0.0.1")
+                .build();
+    }
 
 
     @EventListener(ApplicationReadyEvent.class)
