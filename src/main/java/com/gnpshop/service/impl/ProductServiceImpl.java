@@ -48,12 +48,12 @@ public class ProductServiceImpl implements ProductService {
             // NEW PRODUCT
             Product product = new Product();
             product.setProductId(productId);
-            product.setProductname(productName);
-            product.setProductpescription(productDescription);
-            product.setProductimage(productImage);
-            product.setStockquantity(stockQuantity);
-            product.setProductprice(productPrice);
-            product.setProducttype(productType);
+            product.setProductName(productName);
+            product.setProductDescription(productDescription);
+            product.setProductImage(productImage);
+            product.setStockQuantity(stockQuantity);
+            product.setProductPrice(productPrice);
+            product.setProductType(productType);
 
             //CATEGORY
             Category category = categoryRepository.findCategoryByName(categoryName);
