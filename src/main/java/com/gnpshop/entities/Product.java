@@ -41,6 +41,4 @@ public class Product {
     @OneToMany
     @JoinColumn (name = "orderlineId")
     private List<OrderLine> OrderLine;
-
-
 }
