@@ -6,22 +6,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Baskets")
+@Table(name = "baskets")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer basketId;
-    private Integer userAccountId;
-    private Integer orderLineId;
+    @Column(name ="basket_id")
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn (name = "orderlineId")
-    private OrderLine OrderLine;
+    @JoinColumn (name = "order_line_id")
+    private OrderLine orderLine;
 
     @ManyToOne
-    @JoinColumn (name = "useraccountId")
-    private UserAccount UserAccount;
+    @JoinColumn (name = "user_account_id")
+    private UserAccount userAccount;
 }

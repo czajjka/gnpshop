@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    //Product addProduct(Product product);
+//    Product addProduct(Product product);
 
      ProductAddResponse addProduct(Integer productId, String productName, String productDescription, String productImage,
                                    Integer stockQuantity, BigDecimal productPrice, String productType,

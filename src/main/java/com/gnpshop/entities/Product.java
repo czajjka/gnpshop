@@ -9,33 +9,43 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productId;
-//    private Integer authorId;
-//    private Integer categoryId;
-    private String productName;
-    private String productDescription;
-    private String productImage;
-    private BigDecimal productPrice;
-    private String productType;
+    @Column(name = "product_id")
+    private Integer id;
+
+    @Column(name = "product_name")
+    private String name;
+
+    @Column(name = "product_description")
+    private String description;
+
+    @Column(name = "product_image")
+    private String image;
+
+    @Column(name = "product_price")
+    private BigDecimal price;
+
+    @Column(name = "product_type")
+    private String type;
+
+    @Column(name = "product_stock_quantity")
     private Integer stockQuantity;
 
     @ManyToOne
-    @JoinColumn (name = "categoryId")
-    private Category Category;
+    @JoinColumn (name = "category_id")
+    private Category category;
 
     @ManyToOne
-    @JoinColumn (name = "authorId")
-    private Author Author;
+    @JoinColumn (name = "author_id")
+    private Author author;
 
     @OneToMany
-    @JoinColumn (name = "orderlineId")
-    private List<OrderLine> OrderLine;
+    @JoinColumn (name = "order_line_id")
+    private List<OrderLine> orderLine;
 }
