@@ -1,5 +1,6 @@
 package com.gnpshop.entities;
 
+import com.gnpshop.repository.CategoryRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

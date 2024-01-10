@@ -3,6 +3,7 @@ package com.gnpshop.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,41 +15,47 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @Slf4j
-@RestController
-@RequestMapping("/category")
-@RequiredArgsConstructor
+//@RestController
+//@RequestMapping("/category")
+//@RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping(path = "/{id}")
+	public CategoryController(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
+	@GetMapping(path = "/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable Integer id) {
         final Optional<Category> categoryById = categoryService.getCategoryById(id);
         final String errorMessage = String.format("Category with id %d not found.", id);
         return getCategoryResponseEntity(categoryById ,errorMessage, HttpStatus.OK, HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping
+    @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
 	public ResponseEntity<Category> addCategory(@Validated @RequestBody final Category category){
-        return null;
+        final Optional<Category> addCategory = categoryService.addCategory(category);
+        final String errorMessage = String.format("Category with id %d not found.", category.getId());
+        return getCategoryResponseEntity(addCategory, errorMessage, HttpStatus.CREATED, HttpStatus.FORBIDDEN);
     }
 
     @PutMapping(path = "/{id}")
     public ResponseEntity<Category> addOrUpdateCategory(@PathVariable final Integer id,
                                                         @Validated @RequestBody final Category category) {
-        return null;
-    }
-
-    @PatchMapping(path = "/{id}")
-    public ResponseEntity<Category> updatedCategoryById(@PathVariable final Integer id,
-                                                        @Validated @RequestBody final Category category) {
-        return null;
+        Category updatedCategory = categoryService.addOrUpdatedCategory(id, category);
+        applyLinkToCategory(updatedCategory);
+        return ResponseEntity.ok().body(updatedCategory);
     }
 
     @DeleteMapping(path = "/{id}")
     @ResponseBody
     public ResponseEntity<Category> deleteCategoryById(@PathVariable final Integer id) {
-        return null;
+        Optional<Category> category = categoryService.deleteCategoryById(id);
+        final String errorMessage = String.format("Category with id %d not found", id);
+        return getCategoryResponseEntity(category, errorMessage, HttpStatus.ACCEPTED, HttpStatus.NOT_FOUND);
     }
+
 
     private ResponseEntity<Category> getCategoryResponseEntity(final Optional<Category> category,
                                                                final String errorMessage,
