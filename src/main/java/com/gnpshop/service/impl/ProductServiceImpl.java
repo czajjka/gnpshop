@@ -47,13 +47,13 @@ public class ProductServiceImpl/* implements ProductService*/ {
 
             // NEW PRODUCT
             Product product = new Product();
-            product.setProductId(productId);
-            product.setProductName(productName);
-            product.setProductDescription(productDescription);
-            product.setProductImage(productImage);
+            product.setId(productId);
+            product.setName(productName);
+            product.setDescription(productDescription);
+            product.setImage(productImage);
             product.setStockQuantity(stockQuantity);
-            product.setProductPrice(productPrice);
-            product.setProductType(productType);
+            product.setPrice(productPrice);
+            product.setType(productType);
 
             //CATEGORY
             Category category = categoryRepository.findCategoryByName(categoryName);
