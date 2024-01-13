@@ -15,15 +15,11 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @Slf4j
-//@RestController
-//@RequestMapping("/category")
-//@RequiredArgsConstructor
+@RestController
+@RequestMapping("/category")
+@RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
-
-	public CategoryController(CategoryService categoryService) {
-		this.categoryService = categoryService;
-	}
 
 	@GetMapping(path = "/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable Integer id) {
@@ -40,14 +36,6 @@ public class CategoryController {
         return getCategoryResponseEntity(addCategory, errorMessage, HttpStatus.CREATED, HttpStatus.FORBIDDEN);
     }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<Category> addOrUpdateCategory(@PathVariable final Integer id,
-                                                        @Validated @RequestBody final Category category) {
-        Category updatedCategory = categoryService.addOrUpdatedCategory(id, category);
-        applyLinkToCategory(updatedCategory);
-        return ResponseEntity.ok().body(updatedCategory);
-    }
-
     @DeleteMapping(path = "/{id}")
     @ResponseBody
     public ResponseEntity<Category> deleteCategoryById(@PathVariable final Integer id) {
@@ -56,12 +44,10 @@ public class CategoryController {
         return getCategoryResponseEntity(category, errorMessage, HttpStatus.ACCEPTED, HttpStatus.NOT_FOUND);
     }
 
-
     private ResponseEntity<Category> getCategoryResponseEntity(final Optional<Category> category,
                                                                final String errorMessage,
                                                                final HttpStatus successCode,
                                                                final HttpStatus errorCode) {
-
     return category.map(
             quariedCategory -> {
                 applyLinkToCategory(quariedCategory);

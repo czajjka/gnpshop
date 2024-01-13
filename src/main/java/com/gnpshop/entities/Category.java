@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class Category extends RepresentationModel<Category> {
     @Column(name = "category_id")
     private Integer id;
 
-    @Column(name = "category_name")
+    @Column(name = "category_name", columnDefinition = "VARCHAR(50)")
     private String name;
 
     @OneToMany
