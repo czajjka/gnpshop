@@ -35,7 +35,7 @@ public class CategoryService {
             return Optional.empty();
         }
         categoryRepository.deleteById(id);
-        return Optional.of(qualifiedCategory.get());
+        return qualifiedCategory;
     }
 
     private Optional<Category> findCategoryById(final Integer id) {

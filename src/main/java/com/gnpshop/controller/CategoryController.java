@@ -25,7 +25,7 @@ public class CategoryController {
     public ResponseEntity<Category> getCategoryById(@PathVariable Integer id) {
         final Optional<Category> categoryById = categoryService.getCategoryById(id);
         final String errorMessage = String.format("Category with id %d not found.", id);
-        return getCategoryResponseEntity(categoryById ,errorMessage, HttpStatus.OK, HttpStatus.BAD_REQUEST);
+        return getCategoryResponseEntity(categoryById ,errorMessage, HttpStatus.OK, HttpStatus.NOT_FOUND);
     }
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
