@@ -56,7 +56,7 @@ public class ProductServiceImpl/* implements ProductService*/ {
             product.setType(productType);
 
             //CATEGORY
-            Category category = categoryRepository.findCategoryByName(categoryName);
+//            Category category = categoryRepository.findCategoryByName(categoryName);
             //TODO: Give a possibility to add a new Category if non of the existing categories are relevant
 //        if (category == null) {
 //
