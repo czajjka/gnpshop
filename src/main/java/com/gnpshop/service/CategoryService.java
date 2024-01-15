@@ -13,21 +13,22 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class CategoryService {
-    @Autowired
-    private CategoryRepository categoryRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 
-    public Optional<Category> getCategoryById(final Integer id) {
-        return categoryRepository.findById(id);
-    }
-    public Optional<Category> addCategory(final Category category) {
-        final Optional<Category> qualifedCategory = findCategoryById(category.getId());
-        if (qualifedCategory.isPresent()) {
-            log.error("Category with id {} already exist", category.getId());
-            return Optional.empty();
-        }
-        categoryRepository.save(category) ;
-        return Optional.of(category);
-    }
+	public Optional<Category> getCategoryById(final Integer id) {
+		return categoryRepository.findById(id);
+	}
+
+	public Optional<Category> addCategory(final Category category) {
+		final Optional<Category> qualifedCategory = findCategoryById(category.getId());
+		if (qualifedCategory.isPresent()) {
+			log.error("Category with id {} already exist", category.getId());
+			return Optional.empty();
+		}
+		categoryRepository.save(category);
+		return Optional.of(category);
+	}
 
     public Optional<Category> deleteCategoryById(final Integer id) {
         final Optional<Category> qualifiedCategory = findCategoryById(id);
@@ -38,10 +39,10 @@ public class CategoryService {
         return qualifiedCategory;
     }
 
-    private Optional<Category> findCategoryById(final Integer id) {
-        final List<Category> categoryList = categoryRepository.findAll();
-        return categoryList.stream()
-                .filter(category -> category.getId().equals(id))
-                .findFirst();
-    }
+	private Optional<Category> findCategoryById(final Integer id) {
+		final List<Category> categoryList = categoryRepository.findAll();
+		return categoryList.stream()
+				.filter(category -> category.getId().equals(id))
+				.findFirst();
+	}
 }
