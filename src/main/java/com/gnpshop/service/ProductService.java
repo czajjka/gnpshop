@@ -1,22 +1,48 @@
 package com.gnpshop.service;
 
 import com.gnpshop.entities.Product;
-import com.gnpshop.service.dto.ProductAddResponse;
+import com.gnpshop.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
-public interface ProductService {
+@Slf4j
+@Service
+public class ProductService {
+	@Autowired
+	private ProductRepository productRepository;
 
-//    Product addProduct(Product product);
+	public Optional<Product> getProductById(final Integer id) {
+		return productRepository.findById(id);
+	}
 
-     ProductAddResponse addProduct(Integer productId, String productName, String productDescription, String productImage,
-                                   Integer stockQuantity, BigDecimal productPrice, String productType,
-                                   String categoryName, String authorName) throws IllegalArgumentException;
+	public Optional<Product> addProduct(final Product product) {
+		final Optional<Product> qualifiedProduct = findProductById(product.getId());
+		if (qualifiedProduct.isPresent()) {
+			log.error("Product by id {} already exist", product.getId());
+			return Optional.empty();
+		}
+		productRepository.save(product);
+		return Optional.of(product);
+	}
 
-    List<Product> getAllProducts();
+	public Optional<Product> deleteProductById(final Integer id) {
+		final Optional<Product> qualifiedProduct = findProductById(id);
+		if (qualifiedProduct.isPresent()) {
+			log.error("Product by id {} not exist", id);
+			return Optional.empty();
+		}
+		productRepository.deleteById(id);
+		return Optional.of(qualifiedProduct.get());
+	}
 
-    Product getProductById(Integer productId);
-    Product getProductByName(String productName);
-
+	private Optional<Product> findProductById(final Integer id) {
+		final List<Product> productList = productRepository.findAll();
+		return productList.stream()
+				.filter(product -> product.getId().equals(id))
+				.findFirst();
+	}
 }

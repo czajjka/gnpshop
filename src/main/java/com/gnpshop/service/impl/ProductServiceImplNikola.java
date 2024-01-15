@@ -1,22 +1,16 @@
 package com.gnpshop.service.impl;
 
 import com.gnpshop.entities.Author;
-import com.gnpshop.entities.Category;
 import com.gnpshop.entities.Product;
 import com.gnpshop.repository.AuthorRepository;
 import com.gnpshop.repository.CategoryRepository;
 import com.gnpshop.repository.ProductRepository;
-import com.gnpshop.service.ProductService;
 import com.gnpshop.service.dto.ProductAddResponse;
-import com.gnpshop.service.exceptions.ProductNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 //@Service
-public class ProductServiceImpl/* implements ProductService*/ {
+public class ProductServiceImplNikola/* implements ProductService*/ {
 //    @Autowired
     private ProductRepository productRepository;
 

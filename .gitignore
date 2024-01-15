@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## ___.gitignores temporary files___
+application.properties:5
+application.properties:6
