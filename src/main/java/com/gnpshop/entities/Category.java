@@ -1,12 +1,10 @@
 package com.gnpshop.entities;
 
-import com.gnpshop.repository.CategoryRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
@@ -20,13 +18,13 @@ import java.util.List;
 public class Category extends RepresentationModel<Category> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
+    @Column
     private Integer id;
 
-    @Column(name = "category_name", columnDefinition = "VARCHAR(50)")
+    @Column(length = 50, nullable = false)
     private String name;
 
     @OneToMany
-    @JoinColumn (name = "product_id")
+    @JoinColumn
     private List<Product> product;
 }

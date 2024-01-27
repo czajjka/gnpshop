@@ -15,16 +15,16 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "author_id")
+    @Column
     private Integer id;
 
-    @Column(name = "author_firstname")
-    private String firstname;
+    @Column(name = "first_name", length = 50)
+    private String firstName;
 
-    @Column(name = "author_surname")
+    @Column(length = 50)
     private String surname;
 
     @OneToMany
-    @JoinColumn (name = "product_id")
+    @JoinColumn
     private List<Product> products;
 }
