@@ -15,13 +15,13 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
+    @Column
     private Integer id;
 
-    @Column(name = "role_name")
+    @Column(length = 5)
     private String name;
 
     @OneToMany
-    @JoinColumn (name = "user_account_id")
+    @JoinColumn
     private List<UserAccount> userAccount;
 }

@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -16,36 +15,36 @@ import java.util.List;
 public class UserAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_account_id")
+    @Column
     private Integer id;
 
-    @Column(name = "user_account_login")
+    @Column(length = 15)
     private String login;
 
-    @Column(name = "user_account_password")
+    @Column(length = 15)
     private String password;
 
-    @Column(name = "user_account_city")
+    @Column(length = 90)
     private String city;
 
-    @Column(name = "user_account_address")
+    @Column(length = 100)
     private String address;
 
-    @Column(name = "user_account_avatar")
+    @Column
     private String avatar;
 
-    @Column(name = "user_account_chanel_preferences")
+    @Column(name = "chanel_preferences", length = 50)
 	private String channelPreferences;
 
     @OneToMany
-    @JoinColumn (name = "basket_id")
+    @JoinColumn
     private List<Basket> baskets;
 
     @ManyToOne
     @JoinColumn (name = "role_id")
     private Role role;
 
-    @ManyToOne
-    @JoinColumn (name = "order_id")
-    private Order order;
+    @OneToMany
+    @JoinColumn
+    private List<Order> order;
 }
