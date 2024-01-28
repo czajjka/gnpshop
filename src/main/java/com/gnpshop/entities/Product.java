@@ -17,25 +17,25 @@ import java.util.List;
 public class Product extends RepresentationModel<Category> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
+    @Column
     private Integer id;
 
-    @Column(name = "product_name")
+    @Column
     private String name;
 
-    @Column(name = "product_description")
+    @Column
     private String description;
 
-    @Column(name = "product_image")
+    @Column
     private String image;
 
-    @Column(name = "product_price")
+    @Column
     private BigDecimal price;
 
-    @Column(name = "product_type")
+    @Column
     private String type;
 
-    @Column(name = "product_stock_quantity")
+    @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
     @ManyToOne

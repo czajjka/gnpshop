@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="basket_id")
+    @Column
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn (name = "order_line_id")
     private OrderLine orderLine;
 
